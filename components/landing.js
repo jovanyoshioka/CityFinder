@@ -2,7 +2,6 @@
 
 const landingTemplate = document.createElement('template');
 
-// Possible to import text from an HTML file?
 landingTemplate.innerHTML = `
   <h1>Landing</h1>
 `;
