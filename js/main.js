@@ -27,6 +27,3 @@ function callEndpoint(endpoint) {
         .then((data) => console.log(cleanResponse(data)))
         .catch((err) => console.error(err));
 }
-
-// Calling test endpoint.
-callEndpoint('test');

@@ -1,4 +1,24 @@
+/**
+ * Fonts
+ */
+@font-face {
+    font-family: TiltNeon;
+    src: url('../assets/tiltneon.ttf');
+}
+
+/**
+ * Animations
+ */
+@keyframes bob {
+    from { transform: translateY(0); }
+    to { transform: translateY(1vh); }
+}
+
 html, body {
     margin: 0;
     padding: 0;
+}
+
+body {
+    height: 100vh;
 }
