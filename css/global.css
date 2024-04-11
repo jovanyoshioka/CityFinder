@@ -14,6 +14,10 @@
     to { transform: translateY(1vh); }
 }
 
+:root {
+    --font-primary: TiltNeon;
+}
+
 html, body {
     margin: 0;
     padding: 0;

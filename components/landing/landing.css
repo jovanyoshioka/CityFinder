@@ -32,7 +32,7 @@ div.landing-content h2 {
     margin: 0;
     padding: 0;
     color: #FFFFFF;
-    font-family: TiltNeon;
+    font-family: var(--font-primary);
 }
 div.landing-content h1 { font-size: 14vh; }
 div.landing-content h2 { font-size: 6vh; }
@@ -42,7 +42,7 @@ div.landing-content button {
     border-radius: 15px;
     color: #FFFFFF;
     font-size: 4vh;
-    font-family: TiltNeon;
+    font-family: var(--font-primary);
     background-color: #FF8200;
     margin-top: 3vh;
     transition: background-color 0.25s;

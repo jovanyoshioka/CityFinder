@@ -12,11 +12,11 @@ landingTemplate.innerHTML = `
     <div class="landing-content">
       <h1>CityFinder</h1>
       <h2>Discover your next destination.</h2>
-      <button onclick="alert('TODO: Add scrollTo function.')">Get started</button>
+      <button onclick="smoothScrollTo('tools-component', 1000)">Get started</button>
     </div>
 
     <!-- Bobbing arrow -->
-    <i class="fa-solid fa-angle-down" onclick="alert('TODO: Add scrollTo function.')"></i>
+    <i class="fa-solid fa-angle-down" onclick="smoothScrollTo('tools-component', 1000)"></i>
     
     <!-- Black tinted background video -->
     <div class="landing-tint"></div>
