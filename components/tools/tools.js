@@ -7,6 +7,8 @@ toolsTemplate.innerHTML = `
   <link rel="stylesheet" type="text/css" href="css/global.css">
   <link rel="stylesheet" type="text/css" href="components/tools/tools.css">
 
+  <script src="components/preferences/preferences.js" type="text/javascript" defer></script>
+
   <div class="tools-container">
     <!-- Tool selection buttons -->
     <button id="whereToLiveBtn" class="tools-select-btn" onclick="selectTool(this)">
@@ -24,7 +26,7 @@ toolsTemplate.innerHTML = `
 
     <!-- Where to Live -->
     <section id="whereToLive">
-      <h1>TODO: Where to Live</h1>
+      <preferences-component></preferences-component>
     </section>
 
     <!-- Where to Visit -->
