@@ -5,7 +5,19 @@ const preferencesTemplateContent = `
     <link rel="stylesheet" type="text/css" href="css/global.css">
     <link rel="stylesheet" type="text/css" href="components/preferences/preferences.css">
 
-    <!-- ADD YOUR CODE HERE -->
+    <div class="preferences-container">
+      <!-- *** Add Header (i.e., <h1>) Here *** -->
+      <!-- *** Add Subheader (i.e., <h2>) Here *** -->
+      <div class="preferences-rating">
+        <div class="preferences-rating-labels">
+          <!-- *** Add Rating Labels Here *** -->
+        </div>
+        <!-- *** Add Rating Row (i.e., <fieldset>) Here *** -->
+      </div>
+      <div class="preferences-buttons">
+        <!-- *** Add "Find City" Button Here *** -->
+      </div>
+    </div>
 `;
 
 class Preferences extends HTMLElement {

@@ -22,8 +22,6 @@ toolsTemplate.innerHTML = `
       <h1><span>Where to...</span><br/>Visit</h1>
     </button>
 
-    <!-- TODO: Create components for each of the tools. -->
-
     <!-- Where to Live -->
     <section id="whereToLive">
       <preferences-component></preferences-component>

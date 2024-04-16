@@ -1,0 +1,27 @@
+div.preferences-container {
+    width: 850px;
+    height: auto;
+    margin: 20px auto;
+    padding: 10px 20px 20px 20px;
+    border-radius: 8px;
+    background-color: #383838;
+}
+
+/*** Add Header (i.e., <h1>) Styling Here ***/
+
+div.preferences-rating {
+    margin-top: 20px;
+}
+
+/*** Add Rating Row (i.e., <fieldset>, <p>) Here ***/
+
+div.preferences-rating-labels {
+    width: 100%;
+}
+
+div.preferences-buttons {
+    width: 100%;
+    text-align: center;
+}
+
+/*** Add "Find City" Button (i.e., <button>) Here ***/

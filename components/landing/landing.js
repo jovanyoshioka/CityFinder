@@ -12,7 +12,7 @@ landingTemplate.innerHTML = `
     <div class="landing-content">
       <h1>CityFinder</h1>
       <h2>Discover your next destination.</h2>
-      <button onclick="smoothScrollTo('tools-component', 1000)">Get started</button>
+      <button class="primary" onclick="smoothScrollTo('tools-component', 1000)">Get started</button>
     </div>
 
     <!-- Bobbing arrow -->

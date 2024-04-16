@@ -14,10 +14,16 @@
     to { transform: translateY(1vh); }
 }
 
+/**
+ * Variables
+ */
 :root {
     --font-primary: TiltNeon;
 }
 
+/**
+ * Global Styling
+ */
 html, body {
     margin: 0;
     padding: 0;
@@ -26,3 +32,24 @@ html, body {
 body {
     height: 100vh;
 }
+
+h1, h2, p {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-primary);
+}
+
+button.primary {
+    /* Specify font-size, margin, and padding for specific use case. */
+    border: 2px solid #FFFFFF;
+    border-radius: 15px;
+    color: #FFFFFF;
+    font-family: var(--font-primary);
+    background-color: #FF8200;
+    transition: background-color 0.25s;
+}
+button.primary:hover {
+    cursor: pointer;
+    background-color: #FF9C35;
+}
+button.primary:focus { outline: none; }

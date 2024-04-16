@@ -36,22 +36,11 @@ div.landing-content h2 {
 }
 div.landing-content h1 { font-size: 14vh; }
 div.landing-content h2 { font-size: 6vh; }
-div.landing-content button {
-    padding: 1vh 1vw 1vh 1vw;
-    border: 2px solid #FFFFFF;
-    border-radius: 15px;
-    color: #FFFFFF;
+div.landing-content button.primary {
     font-size: 4vh;
-    font-family: var(--font-primary);
-    background-color: #FF8200;
     margin-top: 3vh;
-    transition: background-color 0.25s;
+    padding: 1vh 1vw 1vh 1vw;
 }
-div.landing-content button:hover {
-    cursor: pointer;
-    background-color: #FF9C35;
-}
-div.landing-content button:focus { outline: none; }
 
 /* Bobbing arrow */
 div.landing-container i {
