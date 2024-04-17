@@ -46,7 +46,7 @@ button.tools-select-btn h1 {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -90%);
+    transform: translate(-50%, -65%);
     font-family: var(--font-primary);
     color: #FFFFFF;
 }

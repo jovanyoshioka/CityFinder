@@ -2,7 +2,7 @@ div.suggestions-container {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: red;
+    background-color: #383838;
 }
 
 section.suggestions-highlight {
@@ -73,7 +73,59 @@ div.suggestions-highlight-image img {
 section.suggestions-results {
     width: 100%;
     height: 40%;
+    position: relative;
+}
+
+section.suggestions-results button {
+    width: 75px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    border: none;
+    background-color: transparent;
+    
+    font-size: 2.5em;
+    color: #FFFFFF;
+}
+section.suggestions-results button:hover {
+    cursor: pointer;
+}
+section.suggestions-results button.previous {
+    left: 0;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+section.suggestions-results button.next {
+    right: 0;
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+section.suggestions-results button i {
+    transition: transform 0.5s;
+}
+section.suggestions-results button.previous:hover i {
+    transform: translateX(-5px);
+}
+section.suggestions-results button.next:hover i {
+    transform: translateX(5px);
+}
+
+div.result-group {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: transform 0.75s;
+}
+
+/* Note: Styling the specific left/right/middle classes will hinder the JavaScript animation. */
+div.result-group:nth-of-type(1) { 
     background-color: lime;
+    transform: translateX(-100%);
+}
+div.result-group:nth-of-type(2) {
+    background-color: orange;
+    transform: translateX(100%);
+}
+div.result-group:nth-of-type(3) {
+    background-color: red;
 }
 
 div.result {
