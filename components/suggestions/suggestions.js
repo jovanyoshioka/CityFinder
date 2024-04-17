@@ -49,17 +49,17 @@ suggestionsTemplate.innerHTML = `
         <h1>Knoxville</h1>
         <h2>2</h2>
       </div><div class="result">
-        <img src="assets/seattle.JPG" />
+        <img src="assets/seattle.jpg" />
         <div class="tint"></div>
         <h1>Seattle</h1>
         <h2>3</h2>
       </div><div class="result">
-        <img src="assets/nyc.JPG" />
+        <img src="assets/nyc.jpg" />
         <div class="tint"></div>
         <h1>New York City</h1>
         <h2>4</h2>
       </div><div class="result">
-        <img src="assets/florida.JPG" />
+        <img src="assets/florida.jpg" />
         <div class="tint"></div>
         <h1>Florida</h1>
         <h2>5</h2>
