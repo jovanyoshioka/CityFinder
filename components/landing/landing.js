@@ -19,7 +19,7 @@ landingTemplate.innerHTML = `
     <i class="fa-solid fa-angle-down" onclick="smoothScrollTo('tools-component', 1000)"></i>
     
     <!-- Black tinted background video -->
-    <div class="landing-tint"></div>
+    <div class="tint"></div>
     <video autoplay muted loop>
       <source src="assets/aerial.mp4" type="video/mp4">
     </video>

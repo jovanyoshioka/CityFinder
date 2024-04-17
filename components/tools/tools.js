@@ -13,12 +13,12 @@ toolsTemplate.innerHTML = `
     <!-- Tool selection buttons -->
     <button id="whereToLiveBtn" class="tools-select-btn" onclick="selectTool(this)">
       <img src="assets/city.jpg" />
-      <div class="tools-tint"></div>
+      <div class="tint"></div>
       <h1><span>Where to...</span><br/>Live</h1>
     </button>
     <button id="whereToVisitBtn" class="tools-select-btn" onclick="selectTool(this)">
       <img src="assets/beach.jpg" />
-      <div class="tools-tint"></div>
+      <div class="tint"></div>
       <h1><span>Where to...</span><br/>Visit</h1>
     </button>
 

@@ -5,14 +5,7 @@ div.landing-container {
     position: relative;
 }
 
-/* Black tinted background video */
-div.landing-container div.landing-tint {
-    width: 100%;
-    height: 100%;
-    background-color: #000000;
-    opacity: 0.5;
-    position: absolute;
-}
+/* Background video */
 div.landing-container video {
     min-width: 100%;
     min-height: 100%;
