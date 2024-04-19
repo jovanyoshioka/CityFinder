@@ -24,4 +24,30 @@ div.preferences-buttons {
     text-align: center;
 }
 
+// task 2 CSS -- to-be moved
+fieldset {
+  border: none;
+}
+
+.preferences-rating-row p {
+  font-size: 1.5em;
+  display: inline-block;
+  margin-right: 10px; /* test then adjust spacing */
+}
+
+.preferences-rating-labels {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+// task 5 CSS -- to-be moved
+.preferences-rating-labels p {
+  font-size: 1.5em;
+  display: inline-block;
+  /* Margins may be adjusted, but flexbox 'space-between' may be enough */
+}
+
+
+
 /*** Add "Find City" Button (i.e., <button>) Here ***/
