@@ -24,6 +24,14 @@ class Preferences extends HTMLElement {
   constructor() {
     super();
   }
+    // task 2 insert -- may be placed incorrectly
+    handleRatingChange(value) {
+  this.selectedRating = value;
+  alert(this.selectedRating); // for verification?
+}
+
+    // task 5 has no JS needs
+
 
   connectedCallback() {
     const preferencesTemplate = document.createElement('template');
