@@ -6,8 +6,15 @@ footerTemplate.innerHTML = `
     <link rel="stylesheet" type="text/css" href="assets/fontawesome-6.5.2/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="css/global.css">
     <link rel="stylesheet" type="text/css" href="components/footer/footer.css">
+  
 
-    <!-- *** Add Footer Code Here *** -->
+    <footer>
+      <p>Creators: Jovi Yishioka, Benjamin Koob, and Arwen Roach</p>
+      <a href="mailto: aroach20@vols.utk.edu">Link to Bibliography</a>
+    </footer>
+  
+    
+ 
 `;
 
 class Footer extends HTMLElement {
