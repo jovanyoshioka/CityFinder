@@ -41,6 +41,10 @@ h1, h2, p, ul {
 
 button.primary {
     /* Specify font-size, margin, and padding for specific use case. */
+    font-size: 2.5em;
+    padding: 5px 10px;
+    margin-top: 20px;
+    margin-right: 0 ;
     border: 2px solid #FFFFFF;
     border-radius: 15px;
     color: #FFFFFF;
@@ -53,6 +57,27 @@ button.primary:hover {
     background-color: #FF9C35;
 }
 button.primary:focus { outline: none; }
+
+button.secondary {
+    /* Specify font-size, margin, and padding for specific use case. */
+    font-size: 2.5em;
+    padding: 5px 10px;
+    margin-top: 20px;
+    margin-left: 0;
+    border: 2px solid #FFFFFF;
+    border-radius: 15px;
+    color: #FFFFFF;
+    font-family: var(--font-primary);
+    background-color: #FF8200;
+    transition: background-color 0.25s;
+}
+button.secondary:hover {
+    cursor: pointer;
+    background-color: #FF9C35;
+}
+button.secondary:focus { outline: none; }
+
+
 
 div.tint {
     width: 100%;
