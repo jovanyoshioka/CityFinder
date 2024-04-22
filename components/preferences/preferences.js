@@ -6,8 +6,8 @@ const preferencesTemplateContent = `
     <link rel="stylesheet" type="text/css" href="components/preferences/preferences.css">
 
     <div class="preferences-container">
-      <!-- *** Add Header (i.e., <h1>) Here *** -->
-      <!-- *** Add Subheader (i.e., <h2>) Here *** -->
+        <h1>Preferences</h1>
+        <h2>Please answer the following questions to assist in finding the perfect city for you!</h2>
       <div class="preferences-rating">
         <div class="preferences-rating-labels">
           <!-- *** Add Rating Labels Here *** -->
@@ -15,23 +15,21 @@ const preferencesTemplateContent = `
         <!-- *** Add Rating Row (i.e., <fieldset>) Here *** -->
       </div>
       <div class="preferences-buttons">
-        <!-- *** Add "Find City" Button Here *** -->
+        <!-- *** Add "Find City" Button Here Is it supposed to be class=preferences-buttons?*** -->
+        <button onclick="myFunction()" class="primary">Find City</button>
+        <button onclick="myFunction()" class="secondary">Back</button>
       </div>
     </div>
 `;
 
+        function myFunction() {
+            alert("I am an alert box!");
+        }
+      
 class Preferences extends HTMLElement {
   constructor() {
     super();
   }
-    // task 2 insert -- may be placed incorrectly
-    handleRatingChange(value) {
-  this.selectedRating = value;
-  alert(this.selectedRating); // for verification?
-}
-
-    // task 5 has no JS needs
-
 
   connectedCallback() {
     const preferencesTemplate = document.createElement('template');
