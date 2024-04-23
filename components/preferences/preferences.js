@@ -7,13 +7,26 @@ const preferencesTemplateContent = `
 
     <div class="preferences-container">
       <!-- *** Add Header (i.e., <h1>) Here *** -->
-      <!-- *** Add Subheader (i.e., <h2>) Here *** -->
+
+      <div class="preferences-categories-container">
+        <!-- *** Add Subheader (i.e., <h2>) Here *** -->
+        <div class="container">
+          <button class="preferences-category">Category A</button>
+          <button class="preferences-category">Category B</button>
+          <button class="preferences-category">Category C</button>
+          <button class="preferences-category">Category D</button>
+          <button class="preferences-category">Category E</button>
+        </div>
+      </div>
+        
       <div class="preferences-rating">
+        <!-- *** Add Subheader (i.e., <h2>) Here *** -->
         <div class="preferences-rating-labels">
           <!-- *** Add Rating Labels Here *** -->
         </div>
         <!-- *** Add Rating Row (i.e., <fieldset>) Here *** -->
       </div>
+
       <div class="preferences-buttons">
         <!-- *** Add "Find City" Button Here *** -->
       </div>

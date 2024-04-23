@@ -7,10 +7,36 @@ div.preferences-container {
     background-color: #383838;
 }
 
+div.preferences-categories-container div.container {
+  margin-top: 10px;
+  text-align: center;
+}
+
+button.preferences-category {
+    width: 250px;
+    height: 80px;
+    margin: 10px 5px;
+    background-color: #1C77C3;
+    border: none;
+    display: inline-block;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2), 0 5px 15px 0 rgba(0,0,0,0.19);
+    transition: background-color 0.25s;
+
+    font-size: 1.5em;
+    font-family: var(--font-primary);
+    color: #FFFFFF;
+}
+
+button.preferences-category:hover {
+  background-color: #3888c9;
+  cursor: pointer;
+}
+
 /*** Add Header (i.e., <h1>) Styling Here ***/
 
 div.preferences-rating {
     margin-top: 20px;
+    display: none;  /* Categories shown by default */
 }
 
 /*** Add Rating Row (i.e., <fieldset>, <p>) Here ***/
