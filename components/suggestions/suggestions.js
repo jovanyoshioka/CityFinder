@@ -10,28 +10,24 @@ suggestionsTemplate.innerHTML = `
   <div class="suggestions-container">
     <section class="suggestions-highlight">
       <div class="suggestions-highlight-content">
-        <h1>Atlanta, Georgia</h1>
-        <h2>#1</h2>
-        <p>
-          Atlanta, GA, boasts a vibrant and diverse culture that reflects its rich history 
-          and dynamic present as the city embraces a blend of traditional Southern hospitality 
-          and contemporary urban energy. Residents contribute to a thriving arts scene, 
-          celebrated music traditions, and a booming film industry.
-        </p>
-        
-        <p>You might like Atlanta because...</p>
-        <ul>
-          <li><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit</span></li>
-          <li><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit</span></li>
-          <li><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit</span></li>
-        </ul>
-        
-        <p>You might not like Atlanta because...</p>
-        <ul>
-          <li><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit</span></li>
-          <li><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit</span></li>
-          <li><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit</span></li>
-        </ul>
+        <div class="container">
+          <h1>Atlanta, Georgia</h1>
+          <h2>#1</h2>
+          
+          <p>You might like Atlanta because...</p>
+          <ul>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+          </ul>
+
+          <p>You might not like Atlanta because...</p>
+          <ul>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+          </ul>
+        </div>
       </div>
       <div class="suggestions-highlight-image">
         <img src="assets/atlanta.JPG" />

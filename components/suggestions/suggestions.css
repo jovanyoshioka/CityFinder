@@ -21,7 +21,14 @@ div.suggestions-highlight-content {
     display: inline-block;
     vertical-align: top;
     position: relative;
+}
 
+div.suggestions-highlight-content div.container {
+    margin-top: -25px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
 }
 
 div.suggestions-highlight-content h1 {
@@ -48,10 +55,6 @@ div.suggestions-highlight-content ul {
     padding: 0;
     color: #FFFFFF;
 }
-div.suggestions-highlight-content li span {
-    position: relative;
-    left: -30px;
-}
 
 div.suggestions-highlight-image {
     width: 500px;
@@ -59,7 +62,6 @@ div.suggestions-highlight-image {
     margin-left: 20px;
     display: inline-block;
     position: relative;
-
 }
 div.suggestions-highlight-image img {
     width: 100%;
