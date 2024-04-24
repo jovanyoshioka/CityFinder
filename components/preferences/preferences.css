@@ -7,7 +7,7 @@ div.preferences-container {
     background-color: #383838;
 }
 
-div.preferences-categories-container div.container {
+div#preferences-categories-container div.container {
   margin-top: 10px;
   text-align: center;
 }
@@ -34,7 +34,7 @@ button.preferences-category:hover {
 
 /*** Add Header (i.e., <h1>) Styling Here ***/
 
-div.preferences-rating {
+div#preferences-rating-container {
     margin-top: 20px;
     display: none;  /* Categories shown by default */
 }
@@ -77,3 +77,7 @@ fieldset {
 
 
 /*** Add "Find City" Button (i.e., <button>) Here ***/
+
+button#back {
+  display: none; /* Only show when category selected */
+}
