@@ -1,0 +1,96 @@
+div.preferences-container {
+    width: 850px;
+    height: auto;
+    margin: 20px auto;
+    padding: 10px 20px 20px 20px;
+    border-radius: 8px;
+    background-color: #383838;
+}
+
+div#preferences-categories-container div.container {
+  margin-top: 10px;
+  text-align: center;
+}
+
+button.preferences-category {
+    width: 250px;
+    height: 80px;
+    margin: 10px 5px;
+    background-color: #1C77C3;
+    border: none;
+    display: inline-block;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2), 0 5px 15px 0 rgba(0,0,0,0.19);
+    transition: background-color 0.25s;
+
+    font-size: 1.5em;
+    font-family: var(--font-primary);
+    color: #FFFFFF;
+}
+
+button.preferences-category:hover {
+  background-color: #3888c9;
+  cursor: pointer;
+}
+
+/*** Add Header (i.e., <h1>) Styling Here ***/
+
+div#preferences-rating-container {
+    margin-top: 20px;
+    display: none;  /* Categories shown by default */
+}
+
+/*** Add Rating Row (i.e., <fieldset>, <p>) Here ***/
+
+div.preferences-rating-labels {
+    width: 100%;
+}
+
+div.preferences-buttons {
+    width: 100%;
+    text-align: center;
+}
+
+// task 2 CSS -- to-be moved
+fieldset {
+  border: none;
+}
+
+/* Style for the fieldset that groups the preference text and rating buttons */
+.preferences-rating-row {
+  border: none; /* Removes the border */
+  display: flex; /* Arranges items in a row */
+  align-items: center; /* Aligns items vertically */
+  gap: 10px; /* Spacing between items */
+}
+
+.preferences-rating-row p {
+  font-size: 1.5em;
+  display: inline-block; /* Makes the <p> element an inline block, allowing it to be inline with other elements but still have width and height */
+  margin: 0; /* Adjust margin as necessary */
+}
+
+/* Style for the labels 'I don't care at all' and 'I care a lot' */
+.preferences-rating-labels p {
+  font-size: 1.5em;
+  display: inline-block; /* Ensures the labels are on the same line */
+  /* Use margin to align the labels above the appropriate rating buttons if necessary */
+}
+
+/* Specific styling for the first label ('I don't care at all') */
+.preferences-rating-labels p:first-child {
+  margin-left: 30px; /* Moves the entire element to the right by 30px */
+  text-indent: 60px; /* Adjust if you want to change how the text is indented */
+}
+
+/* Specific styling for the last label ('I care a lot') */
+.preferences-rating-labels p:last-child {
+  text-indent: 120px; /* Keeps the 62px indent for the text inside the element */
+  margin-left: auto; /* Helps push the label to the far right if needed */
+}
+
+
+/*** Add "Find City" Button (i.e., <button>) Here ***/
+
+button#back {
+  display: none; /* Only show when category selected */
+}
