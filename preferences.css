@@ -7,10 +7,33 @@ div.preferences-container {
     background-color: #383838;
 }
 
+div.response-row {
+  width: 100%;
+  height: auto;
+;
+}
+
 div#preferences-categories-container div.container {
   margin-top: 10px;
   text-align: center;
 }
+
+div.text {
+  width: 49%;
+  height: auto;
+;
+display: inline-block;
+}
+
+
+div.right-side-buttons {
+  width: 49%;
+  height: auto;
+;
+display: inline-block;
+text-align: center;
+}
+
 
 button.preferences-category {
     width: 250px;
@@ -78,14 +101,14 @@ fieldset {
 
 /* Specific styling for the first label ('I don't care at all') */
 .preferences-rating-labels p:first-child {
-  margin-left: 30px; /* Moves the entire element to the right by 30px */
-  text-indent: 60px; /* Adjust if you want to change how the text is indented */
+ 
+  float: left;
 }
 
 /* Specific styling for the last label ('I care a lot') */
 .preferences-rating-labels p:last-child {
-  text-indent: 120px; /* Keeps the 62px indent for the text inside the element */
-  margin-left: auto; /* Helps push the label to the far right if needed */
+  
+  float: right;
 }
 
 

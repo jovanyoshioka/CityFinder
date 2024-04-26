@@ -24,8 +24,26 @@ const preferencesTemplateContent = `
       <h2>How much do you care about each of the following in your next home city?</h2>
       <div class="preferences-rating-labels">
         <br>
-        <p class="preferences-label">I don't care</p> <!-- First label for the leftmost button -->
-        <p class="preferences-label">I care a lot</p>    <!-- Second label for the rightmost button -->
+        <div class="response-row">
+          <div class="text"></div>
+          <div class="right-side-buttons">
+            <p class="preferences-label">Not Important</p>
+            <p class="preferences-label">Very Important</p>
+          </div>
+        </div>
+
+        <div class="response-row">
+          <div class="text">Feature</div>
+          <div class="right-side-buttons">
+          <input type="radio" name="preference" value="1">
+          <input type="radio" name="preference" value="2">
+          <input type="radio" name="preference" value="3">
+          <input type="radio" name="preference" value="4">
+          <input type="radio" name="preference" value="5">
+          </div>
+        </div>
+        
+  
       </div>
       <fieldset class="preferences-rating-row">
         
@@ -85,16 +103,16 @@ class Preferences extends HTMLElement {
     shadowRoot.appendChild(preferencesTemplate.content);
 
     // Now let's append the ratingRowHTML to the container
-    const ratingRowHTML = `
-      <fieldset class="preferences-rating-row">
-        <p>FeatureName</p> <!-- Replace with actual preference text -->
-        ${[1, 2, 3, 4, 5].map(value => `
-          <input type="radio" name="preference" value="${value}">
-        `).join('')}
-      </fieldset>
-    `;
+    // const ratingRowHTML = `
+    //   <fieldset class="preferences-rating-row">
+    //     <p>FeatureName</p> <!-- Replace with actual preference text -->
+    //     ${[1, 2, 3, 4, 5].map(value => `
+    //       <input type="radio" name="preference" value="${value}">
+    //     `).join('')}
+    //   </fieldset>
+    // `;
 
-    shadowRoot.getElementById('preferences-rating-container').innerHTML += ratingRowHTML;
+    // shadowRoot.getElementById('preferences-rating-container').innerHTML += ratingRowHTML;
 
     // Now add the event listeners programmatically
     const radioButtons = shadowRoot.querySelectorAll('input[type="radio"][name="preference"]');
