@@ -1,7 +1,7 @@
 // Reference: https://www.freecodecamp.org/news/reusable-html-components-how-to-reuse-a-header-and-footer-on-a-website/
 
 // Create button elements for each category.
-const CATEGORIES = ["Socioeconomic", "Education", "Crime", "Services", "Politics", "Agriculture", "Establishments", "Transit", "Climate", "Other"];
+const CATEGORIES = ["Industry", "Geography &<br>Land Use", "Amenities", "Demographic", "Climate", "Economic", "Politics", "Crime", "Healthcare"];
 const categoryButtons = createCategoryButtons(CATEGORIES);
 
 const preferencesTemplateContent = `

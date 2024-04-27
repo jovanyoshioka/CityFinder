@@ -22,11 +22,11 @@ button.tools-select-btn:hover {
 }
 button.tools-select-btn:nth-of-type(1) {
     left: 0;
-    border-right: 1.5px solid #FFFFFF;
+    border-right: 1.5px solid #DBE4EE;
 }
 button.tools-select-btn:nth-of-type(2) {
     right: 0;
-    border-left: 1.5px solid #FFFFFF;
+    border-left: 1.5px solid #DBE4EE;
 }
 button.tools-select-btn img {
     min-width: 100vw;
@@ -48,7 +48,7 @@ button.tools-select-btn h1 {
     left: 50%;
     transform: translate(-50%, -65%);
     font-family: var(--font-primary);
-    color: #FFFFFF;
+    color: #DBE4EE;
 }
 button.tools-select-btn h1 span {
     font-size: 4vw;
@@ -60,8 +60,8 @@ section {
     height: 100%;
     position: absolute;
     transform: translateY(100%);
-    background-color: #4B4B4B;
-    color: #FFFFFF;
+    background-color: #383838;
+    color: #DBE4EE;
     transition: transform 0.75s;
     display: none;
     overflow-y: auto;
