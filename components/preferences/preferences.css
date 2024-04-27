@@ -24,15 +24,20 @@ button.preferences-category {
 
     font-size: 1.5em;
     font-family: var(--font-primary);
-    color: #FFFFFF;
+    color: #DBE4EE;
 }
 
 button.preferences-category:hover {
-  background-color: #3888c9;
+  background-color: #2c8bdb;
   cursor: pointer;
 }
 
 /*** Add Header (i.e., <h1>) Styling Here ***/
+
+h1 {
+    font-size: 3em;
+}
+
 
 div#preferences-rating-container {
     margin-top: 20px;
@@ -49,6 +54,17 @@ div.preferences-buttons {
     width: 100%;
     text-align: center;
 }
+
+button.primary {
+    font-size: 1em;
+    padding: 5px 10px;
+    margin-top: 20px;
+}
+
+button.secondary {
+    font-size: 1em;
+}
+
 
 // task 2 CSS -- to-be moved
 fieldset {

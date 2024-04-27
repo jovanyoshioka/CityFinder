@@ -1,7 +1,7 @@
 // Reference: https://www.freecodecamp.org/news/reusable-html-components-how-to-reuse-a-header-and-footer-on-a-website/
 
 // Create button elements for each category.
-const CATEGORIES = ["Socioeconomic", "Education", "Crime", "Services", "Politics", "Agriculture", "Establishments", "Transit", "Climate", "Other"];
+const CATEGORIES = ["Industry", "Geography & Land Use", "Amenities", "Demographic", "Climate", "Economic", "Politics", "Crime", "Healthcare"];
 const categoryButtons = createCategoryButtons(CATEGORIES);
 
 const preferencesTemplateContent = `
@@ -10,10 +10,10 @@ const preferencesTemplateContent = `
     <link rel="stylesheet" type="text/css" href="components/preferences/preferences.css">
 
     <div class="preferences-container">
-      <!-- *** Add Header (i.e., <h1>) Here *** -->
+      <h1>Preferences</h1>
 
       <div id="preferences-categories-container">
-        <!-- *** Add Subheader (i.e., <h2>) Here *** -->
+        <h2>Please answer the following questions to assist in finding the perfect city for you!</h2>
         <div class="container">`+
           categoryButtons
         +`</div>
@@ -28,10 +28,14 @@ const preferencesTemplateContent = `
       </div>
 
       <div class="preferences-buttons">
-        <!-- *** Add "Find City" Button Here *** -->
+        <button onclick="myFunction()" class="primary">Find City</button>
+        <button href= "https://jovanyoshioka.github.io/CityFinder/" class="secondary">Back</button>
       </div>
     </div>
 `;
+function myFunction() {
+  alert("I am an alert box!");
+}
 
 function getDocNode() {
   return document.getElementsByTagName("tools-component")[0].shadowRoot.querySelector("preferences-component").shadowRoot;
