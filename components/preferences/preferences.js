@@ -10,10 +10,10 @@ const preferencesTemplateContent = `
     <link rel="stylesheet" type="text/css" href="components/preferences/preferences.css">
 
     <div class="preferences-container">
-      <!-- *** Add Header (i.e., <h1>) Here *** -->
+      <h1>Preferences</h1>
 
       <div id="preferences-categories-container">
-        <!-- *** Add Subheader (i.e., <h2>) Here *** -->
+        <h2>Choose a category to select your home city preferences!</h2>
         <div class="container">`+
           categoryButtons
         +`</div>
@@ -42,10 +42,15 @@ const preferencesTemplateContent = `
       </div>
 
       <div class="preferences-buttons">
-        <!-- *** Add "Find City" Button Here *** -->
+        <button onclick="myFunction()" class="primary">Find City</button>
+        <button onclick="myFunction()" class="primary">Back</button>
       </div>
     </div>
 `;
+
+function myFunction() {
+  alert("I am an alert box!");
+}
 
 function getDocNode() {
   return document.getElementsByTagName("tools-component")[0].shadowRoot.querySelector("preferences-component").shadowRoot;

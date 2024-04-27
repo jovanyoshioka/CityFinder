@@ -7,7 +7,10 @@ footerTemplate.innerHTML = `
     <link rel="stylesheet" type="text/css" href="css/global.css">
     <link rel="stylesheet" type="text/css" href="components/footer/footer.css">
 
-    <!-- *** Add Footer Code Here *** -->
+    <footer>
+      <p>Creators: Jovan Yoshioka, Benjamin Koob, Arwen Roach</p>
+      <a href="https://docs.google.com/document/d/1P0lkOtinwPJFv0krgGYw9cnMFcGzl6vQDdPTS2l4qQg/edit?usp=sharing">Link to Bibliography</a>
+    </footer>
 `;
 
 class Footer extends HTMLElement {
