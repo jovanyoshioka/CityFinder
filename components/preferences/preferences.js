@@ -42,8 +42,8 @@ const preferencesTemplateContent = `
       </div>
 
       <div class="preferences-buttons">
+        <button onclick="showCategories()" id="back" class="primary"><i class="fa-solid fa-chevron-left"></i> Back</button>
         <button onclick="myFunction()" class="primary">Find City</button>
-        <button onclick="myFunction()" class="primary">Back</button>
       </div>
     </div>
 `;
@@ -69,7 +69,7 @@ function selectCategory(category) {
   const doc = getDocNode();
   doc.getElementById("preferences-categories-container").style.display = "none";
   doc.getElementById("preferences-rating-container").style.display = "block";
-  doc.getElementById("back").style.display = "block";
+  doc.getElementById("back").style.display = "inline-block";
 }
 
 function showCategories() {

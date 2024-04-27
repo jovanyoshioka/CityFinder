@@ -3,7 +3,6 @@ div.preferences-container {
     height: auto;
     margin: 20px auto;
     padding: 10px 20px 20px 20px;
-    border-radius: 8px;
 }
 
 div#preferences-categories-container div.container {
@@ -85,6 +84,10 @@ div.response-row div.right-side-labels p:last-child {
   float: right;
 }
 
+div.preferences-buttons {
+  position: relative;
+}
+
 div.preferences-buttons button.primary {
   font-size: 2.5em;
   padding: 5px 10px;
@@ -93,4 +96,12 @@ div.preferences-buttons button.primary {
 
 button#back {
   display: none; /* Only show when category selected */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+button#back i {
+  font-size: 0.8em;
+  margin-right: 5px;
 }
