@@ -20,11 +20,25 @@ const preferencesTemplateContent = `
       </div>
         
       <div id="preferences-rating-container">
-        <!-- *** Add Subheader (i.e., <h2>) Here *** -->
-        <div class="preferences-rating-labels">
-          <!-- *** Add Rating Labels Here *** -->
+        <h2>How much do you care about each of the following in your next home city?</h2>
+        <div class="response-row">
+          <div class="text"></div>
+          <div class="right-side-labels">
+            <p class="preferences-label">Not Important</p>
+            <p class="preferences-label">Very Important</p>
+          </div>
         </div>
-        <!-- *** Add Rating Row (i.e., <fieldset>) Here *** -->
+        
+        <div class="response-row">
+          <div class="text">Feature</div>
+          <div class="right-side-buttons">
+            <input type="radio" name="preference" value="1">
+            <input type="radio" name="preference" value="2">
+            <input type="radio" name="preference" value="3">
+            <input type="radio" name="preference" value="4">
+            <input type="radio" name="preference" value="5">
+          </div>
+        </div>
       </div>
 
       <div class="preferences-buttons">
@@ -64,14 +78,6 @@ class Preferences extends HTMLElement {
   constructor() {
     super();
   }
-    // task 2 insert -- may be placed incorrectly
-    handleRatingChange(value) {
-  this.selectedRating = value;
-  alert(this.selectedRating); // for verification?
-}
-
-    // task 5 has no JS needs
-
 
   connectedCallback() {
     const preferencesTemplate = document.createElement('template');

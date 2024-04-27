@@ -39,7 +39,24 @@ div#preferences-rating-container {
     display: none;  /* Categories shown by default */
 }
 
-/*** Add Rating Row (i.e., <fieldset>, <p>) Here ***/
+div.response-row {
+  width: 100%;
+  height: auto;
+}
+
+div.response-row div.text {
+  width: 49%;
+  height: auto;
+  display: inline-block;
+}
+
+div.response-row div.right-side-buttons,
+div.response-row div.right-side-labels {
+  width: 49%;
+  height: auto;
+  display: inline-block;
+  text-align: center;
+}
 
 div.preferences-rating-labels {
     width: 100%;
@@ -50,31 +67,21 @@ div.preferences-buttons {
     text-align: center;
 }
 
-// task 2 CSS -- to-be moved
-fieldset {
-  border: none;
-}
-
-.preferences-rating-row p {
+/* Style for the labels 'Not Important' and 'Very Important' */
+div.response-row div.right-side-labels p {
   font-size: 1.5em;
-  display: inline-block;
-  margin-right: 10px; /* test then adjust spacing */
+  display: inline-block; /* Ensures the labels are on the same line */
 }
 
-.preferences-rating-labels {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+/* Specific styling for the first label ('Not Important') */
+div.response-row div.right-side-labels p:first-child {
+  float: left;
 }
 
-// task 5 CSS -- to-be moved
-.preferences-rating-labels p {
-  font-size: 1.5em;
-  display: inline-block;
-  /* Margins may be adjusted, but flexbox 'space-between' may be enough */
+/* Specific styling for the last label ('Very Important') */
+div.response-row div.right-side-labels p:last-child {
+  float: right;
 }
-
-
 
 /*** Add "Find City" Button (i.e., <button>) Here ***/
 
