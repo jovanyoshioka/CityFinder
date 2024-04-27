@@ -10,7 +10,7 @@ footerTemplate.innerHTML = `
 
     <footer>
       <p>Creators: Jovi Yishioka, Benjamin Koob, and Arwen Roach</p>
-      <a href="mailto: aroach20@vols.utk.edu">Link to Bibliography</a>
+      <a href="https://docs.google.com/document/d/1P0lkOtinwPJFv0krgGYw9cnMFcGzl6vQDdPTS2l4qQg/edit?usp=sharing">Link to Bibliography</a>
     </footer>
   
     
