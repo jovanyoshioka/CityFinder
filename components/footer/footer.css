@@ -1,0 +1,12 @@
+
+footer{
+    text-align: left;
+    background: #154977;
+    padding: 7px;
+    color: #DBE4EE;
+}
+
+a:link {
+    color: #DBE4EE;
+    text-decoration: none;
+}
