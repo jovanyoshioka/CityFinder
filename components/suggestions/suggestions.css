@@ -61,7 +61,7 @@ div.suggestions-highlight-content h2 {
     font-size: 3em;
     position: absolute;
     top: 10px;
-    left: 20px;
+    left: -10px;
     color: #DBE4EE;
 }
 div.suggestions-highlight-content p {
@@ -178,7 +178,7 @@ div.result:hover img {
 
 /* City name */
 div.result h1 {
-    font-size: 3em;
+    font-size: 2em;
     position: absolute;
     top: 50%;
     left: 50%;

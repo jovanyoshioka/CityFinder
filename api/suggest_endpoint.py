@@ -78,8 +78,8 @@ def suggest_cities(user_importance):
     sorted_cities = sorted(city_scores.items(), key=lambda x: x[1], reverse=True)
 
     output = []
-    for city_score in sorted_cities[:5]:
-        output.append(df.iloc[city_score[0]]['city'])
+    for i, city in enumerate(sorted_cities[:5]):
+        output.append([df.iloc[city[0]]['city'], i+1])
 
     return output
 

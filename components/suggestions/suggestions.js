@@ -14,113 +14,19 @@ suggestionsTemplate.innerHTML = `
 
     <section class="suggestions-highlight">
       <div class="suggestions-highlight-content">
-        <div class="container">
-          <h1>Atlanta, Georgia</h1>
-          <h2>#1</h2>
-          
-          <p>You might like Atlanta because...</p>
-          <ul>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-          </ul>
-
-          <p>You might not like Atlanta because...</p>
-          <ul>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-          </ul>
+        <div id="highlight" class="container">
+          <!-- Populated by displayHighlight() -->
         </div>
       </div>
       <div class="suggestions-highlight-image">
-        <img src="assets/atlanta.JPG" />
+        <img src="assets/knoxville.JPG" />
       </div>
     </section>
     <section class="suggestions-results">
-      <div class="result-group left">
-        <div class="result">
-          <img src="assets/florida.jpg" />
-          <div class="tint"></div>
-          <h1>Placeholder</h1>
-          <h2>#</h2>
-        </div><div class="result">
-          <img src="assets/knoxville.JPG" />
-          <div class="tint"></div>
-          <h1>Placeholder</h1>
-          <h2>#</h2>
-        </div><div class="result">
-          <img src="assets/nyc.jpg" />
-          <div class="tint"></div>
-          <h1>Placeholder</h1>
-          <h2>#</h2>
-        </div><div class="result">
-          <img src="assets/seattle.jpg" />
-          <div class="tint"></div>
-          <h1>Placeholder</h1>
-          <h2>#</h2>
-        </div><div class="result">
-          <img src="assets/atlanta.JPG" />
-          <div class="tint"></div>
-          <h1>Placeholder</h1>
-          <h2>#</h2>
-        </div>
-      </div>
-      <div class="result-group right">
-        <div class="result">
-          <img src="assets/seattle.jpg" />
-          <div class="tint"></div>
-          <h1>Placeholder</h1>
-          <h2>#</h2>
-        </div><div class="result">
-          <img src="assets/knoxville.JPG" />
-          <div class="tint"></div>
-          <h1>Placeholder</h1>
-          <h2>#</h2>
-        </div><div class="result">
-          <img src="assets/atlanta.JPG" />
-          <div class="tint"></div>
-          <h1>Placeholder</h1>
-          <h2>#</h2>
-        </div><div class="result">
-          <img src="assets/florida.jpg" />
-          <div class="tint"></div>
-          <h1>Placeholder</h1>
-          <h2>#</h2>
-        </div><div class="result">
-          <img src="assets/nyc.jpg" />
-          <div class="tint"></div>
-          <h1>Placeholder</h1>
-          <h2>#</h2>
-        </div>
-      </div>
+      <div class="result-group left"></div>
+      <div class="result-group right"></div>
       <div class="result-group middle">
-        <div class="result">
-          <img src="assets/knoxville.JPG" />
-          <div class="tint"></div>
-          <h1>Knoxville</h1>
-          <h2>1</h2>
-        </div><div class="result">
-          <img src="assets/atlanta.JPG" />
-          <div class="tint"></div>
-          <h1>Atlanta</h1>
-          <h2>2</h2>
-        </div><div class="result">
-          <img src="assets/seattle.jpg" />
-          <div class="tint"></div>
-          <h1>Seattle</h1>
-          <h2>3</h2>
-        </div><div class="result">
-          <img src="assets/nyc.jpg" />
-          <div class="tint"></div>
-          <h1>New York City</h1>
-          <h2>4</h2>
-        </div><div class="result">
-          <img src="assets/florida.jpg" />
-          <div class="tint"></div>
-          <h1>Florida</h1>
-          <h2>5</h2>
-        </div>
+        <!-- Populated by displayResults() -->
       </div>
       
       <button class="previous" onclick="showResults(false)">
@@ -132,6 +38,47 @@ suggestionsTemplate.innerHTML = `
     </section>
   </div>
 `;
+
+function displayHighlight(location, rank) {
+  const element = `
+    <h1>`+ location +`</h1>
+    <h2>#`+ rank +`</h2>
+    
+    <p>You might like `+ location +` because...</p>
+    <ul>
+      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+    </ul>
+
+    <p>You might not like `+ location +` because...</p>
+    <ul>
+      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+    </ul>
+  `;
+
+  const doc = document.getElementsByTagName("suggestions-component")[0].shadowRoot;
+  doc.getElementById("highlight").innerHTML = element;
+}
+
+function displayResults(results) {
+  let elements = ``;
+  results.forEach((result) => {
+    // Note: String cannot have spaces before/after div tags b/c it will cause unwanted padding.
+    elements += 
+      `<div class="result">
+        <img src="assets/knoxville.JPG" />
+        <div class="tint"></div>
+        <h1>`+ result[0] +`</h1>
+        <h2>`+ result[1] +`</h2>
+      </div>`;
+  });
+  const doc = document.getElementsByTagName("suggestions-component")[0].shadowRoot;
+  doc.querySelector("div.result-group.middle").innerHTML = elements;
+}
+
 
 /**
  * Helper function to replace class.
@@ -149,7 +96,7 @@ function replaceClass(node, oldClass, newClass) {
  * @param next If true, show next results; false, show previous results.
  */
 function showResults(next) {
-  var doc = document.getElementsByTagName("suggestions-component")[0].shadowRoot;
+  const doc = document.getElementsByTagName("suggestions-component")[0].shadowRoot;
 
   // Disable the transition button.
   var buttonNodes = doc.querySelectorAll("section.suggestions-results button");

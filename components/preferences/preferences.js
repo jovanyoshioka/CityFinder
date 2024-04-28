@@ -213,10 +213,14 @@ function findCity() {
       "Content-type": "application/json; charset=UTF-8"
     }
   })
-    .then((res) => res.text())
+    .then((res) => res.json())
     .then((data) => {
-      // TODO: Set suggestions to the returned data.
       console.log(data);
+
+      // Initialize the suggestions interface.
+      const results = data["suggestions"];
+      displayHighlight(results[0][0], results[0][1]);
+      displayResults(results);
 
       // Show suggestions once all data is set.
       suggestionsDoc.getElementById("loading-screen").style.pointerEvents = "none";

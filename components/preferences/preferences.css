@@ -48,7 +48,7 @@ div#response-rows {
 div.response-row {
   width: 100%;
   height: auto;
-  background-color: #2c8bdb;
+  background-color: #1C77C3;
   border-bottom: 1px solid #DBE4EE;
 }
 div.response-row:last-of-type {
