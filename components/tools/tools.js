@@ -6,7 +6,7 @@ toolsTemplate.innerHTML = `
   <link rel="stylesheet" type="text/css" href="assets/fontawesome-6.5.2/css/all.min.css">
   <link rel="stylesheet" type="text/css" href="css/global.css">
   <link rel="stylesheet" type="text/css" href="components/tools/tools.css">
-
+  
   <script src="components/preferences/preferences.js" type="text/javascript" defer></script>
 
   <div class="tools-container">
