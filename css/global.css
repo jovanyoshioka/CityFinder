@@ -42,7 +42,7 @@ h1, h2, p, ul, a {
 button.primary {
     /* Specify font-size, margin, and padding for specific use case. */
     border: 2px solid #DBE4EE;
-    border-radius: 15px;
+    border-radius: 10px;
     color: #DBE4EE;
     font-family: var(--font-primary);
     background-color: #DB5461;

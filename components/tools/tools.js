@@ -29,7 +29,7 @@ toolsTemplate.innerHTML = `
 
     <!-- Where to Visit -->
     <section id="whereToVisit">
-      <h1>TODO: Where to Visit</h1>
+      <h1>This is currently unavailable.</h1>
     </section>
   </div>
 `;

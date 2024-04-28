@@ -30,13 +30,54 @@ const preferencesTemplateContent = `
         </div>
         
         <div class="response-row">
-          <div class="text">Feature</div>
+          <div class="text">
+            <p>Feature</p>
+          </div>
           <div class="right-side-buttons">
-            <input type="radio" name="preference" value="1">
-            <input type="radio" name="preference" value="2">
-            <input type="radio" name="preference" value="3">
-            <input type="radio" name="preference" value="4">
-            <input type="radio" name="preference" value="5">
+            <input type="radio" name="preference1" value="1">
+            <input type="radio" name="preference1" value="2">
+            <input type="radio" name="preference1" value="3" checked>
+            <input type="radio" name="preference1" value="4">
+            <input type="radio" name="preference1" value="5">
+          </div>
+        </div>
+
+        <div class="response-row">
+          <div class="text">
+            <p>Feature</p>
+          </div>
+          <div class="right-side-buttons">
+            <input type="radio" name="preference2" value="1">
+            <input type="radio" name="preference2" value="2">
+            <input type="radio" name="preference2" value="3" checked>
+            <input type="radio" name="preference2" value="4">
+            <input type="radio" name="preference2" value="5">
+          </div>
+        </div>
+
+        <div class="response-row">
+          <div class="text">
+            <p>Feature</p>
+          </div>
+          <div class="right-side-buttons">
+            <input type="radio" name="preference3" value="1">
+            <input type="radio" name="preference3" value="2">
+            <input type="radio" name="preference3" value="3" checked>
+            <input type="radio" name="preference3" value="4">
+            <input type="radio" name="preference3" value="5">
+          </div>
+        </div>
+
+        <div class="response-row">
+          <div class="text">
+            <p>Feature</p>
+          </div>
+          <div class="right-side-buttons">
+            <input type="radio" name="preference4" value="1">
+            <input type="radio" name="preference4" value="2">
+            <input type="radio" name="preference4" value="3" checked>
+            <input type="radio" name="preference4" value="4">
+            <input type="radio" name="preference4" value="5">
           </div>
         </div>
       </div>
