@@ -31,7 +31,7 @@ const preferencesTemplateContent = `
 
       <div class="preferences-buttons">
         <button onclick="showCategories()" id="back" class="primary"><i class="fa-solid fa-chevron-left"></i> Back</button>
-        <button onclick="myFunction()" class="primary">Find City</button>
+        <button onclick="findCity()" class="primary">Find City</button>
       </div>
     </div>
 `;
@@ -186,6 +186,27 @@ function showCategories() {
   doc.getElementById("preferences-categories-container").style.display = "block";
   doc.getElementById("preferences-rating-container").style.display = "none";
   doc.getElementById("back").style.display = "none";
+}
+
+function findCity() {
+  // Show the suggestions interface, ensuring the loading screen is shown.
+  const suggestionsDoc = document.getElementsByTagName("suggestions-component")[0].shadowRoot;
+  suggestionsDoc.getElementById("suggestions-container").style.display = "block";
+  suggestionsDoc.getElementById("loading-screen").style.pointerEvents = "auto";
+  suggestionsDoc.getElementById("loading-screen").style.opacity = "1.0";
+
+  // Scroll user to the suggestions interface to show them it is loading.
+  smoothScrollTo('suggestions-component', 1000);
+
+  // Call PythonAnywhere API endpoint.
+  // Set the suggestions interface content based on results.
+  setTimeout(() => {
+    /* TODO: Call API endpoint and set the returned data. */
+    
+    // Show suggestions once all data is set.
+    suggestionsDoc.getElementById("loading-screen").style.pointerEvents = "none";
+    suggestionsDoc.getElementById("loading-screen").style.opacity = "0.0";
+  }, 5000);
 }
 
 class Preferences extends HTMLElement {

@@ -7,7 +7,11 @@ suggestionsTemplate.innerHTML = `
   <link rel="stylesheet" type="text/css" href="css/global.css">
   <link rel="stylesheet" type="text/css" href="components/suggestions/suggestions.css">
 
-  <div class="suggestions-container">
+  <div id="suggestions-container">
+    <div id="loading-screen">
+      <img src="assets/loading_icon.gif" />
+    </div>
+
     <section class="suggestions-highlight">
       <div class="suggestions-highlight-content">
         <div class="container">
