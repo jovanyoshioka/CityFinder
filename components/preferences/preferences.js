@@ -24,13 +24,6 @@ const preferencesTemplateContent = `
         
       <div id="preferences-rating-container">
         <h2>Please answer these questions to help us find the perfect city for you!</h2>
-        <div class="response-row header">
-          <div class="text"></div>
-          <div class="right-side-labels">
-            <p class="preferences-label">Not Important</p>
-            <p class="preferences-label">Very Important</p>
-          </div>
-        </div>
         <div id="response-rows">
           <!-- Populated by addQuestions() -->
         </div>
@@ -44,10 +37,19 @@ const preferencesTemplateContent = `
 `;
 
 function getDefaultRatings() {
-  // Initialize each feature as default rating "3".
+  // Initialize each feature as default rating "3" (norm/inv_norm) or average (goldilock).
   const featureRatings = {};
   for (const [key, value] of Object.entries(FEATURES_CATEGORIZED)) {
-    featureRatings[key] = "3";
+    if (key in GOLDILOCK_FEATURE_RANGES) {
+      // Initialize as average of min/max values for goldilocks feature.
+      const data = GOLDILOCK_FEATURE_RANGES[key];
+      const minVal = data[0];
+      const maxVal = data[1];
+      featureRatings[key] = Math.round((minVal + maxVal) / 2).toString();
+    } else {
+      // Initialize as default "3" for norm/inv_norm feature.
+      featureRatings[key] = "3";
+    }
   }
   return featureRatings;
 }
@@ -57,6 +59,18 @@ function rateFeature(inputNode) {
   const rating = inputNode.value;
 
   ratings[feature] = rating;
+}
+
+function handleSlider(sliderNode) {
+  // Update rating dictionary with value.
+  rateFeature(sliderNode);
+
+  // Update displayed value.
+  const doc = getDocNode();
+  const feature = sliderNode.name;
+  const rating = sliderNode.value;
+
+  doc.getElementById(feature + "-display").innerHTML = rating;
 }
 
 function myFunction() {
@@ -101,20 +115,51 @@ function addQuestions(category) {
     checked[parseInt(ratings[feature])-1] = "checked";
 
     // Create HTML element with appropriate data.
-    elements += `
-      <div class="response-row">
-        <div class="text">
-          <p>`+ question +` `+ displayName +`?</p>
+    if (type != "gold") {
+      // Add radio button for rating.
+      elements += `
+        <div class="response-row">
+          <div class="text">
+            <p>`+ question +` `+ displayName +`?</p>
+          </div>
+          <div class="right-side">
+            <div class="labels">
+              <p>Not Important</p>
+              <p>Very Important</p>
+            </div>
+            <div class="buttons">
+              <input type="radio" name="`+ feature +`" value="1" onchange="rateFeature(this)" `+ checked[0] +`>
+              <input type="radio" name="`+ feature +`" value="2" onchange="rateFeature(this)" `+ checked[1] +`>
+              <input type="radio" name="`+ feature +`" value="3" onchange="rateFeature(this)" `+ checked[2] +`>
+              <input type="radio" name="`+ feature +`" value="4" onchange="rateFeature(this)" `+ checked[3] +`>
+              <input type="radio" name="`+ feature +`" value="5" onchange="rateFeature(this)" `+ checked[4] +`>
+            </div>
+          </div>
         </div>
-        <div class="right-side-buttons">
-          <input type="radio" name="`+ feature +`" value="1" onchange="rateFeature(this)" `+ checked[0] +`>
-          <input type="radio" name="`+ feature +`" value="2" onchange="rateFeature(this)" `+ checked[1] +`>
-          <input type="radio" name="`+ feature +`" value="3" onchange="rateFeature(this)" `+ checked[2] +`>
-          <input type="radio" name="`+ feature +`" value="4" onchange="rateFeature(this)" `+ checked[3] +`>
-          <input type="radio" name="`+ feature +`" value="5" onchange="rateFeature(this)" `+ checked[4] +`>
+      `;
+    } else {
+      // Add slider to choose ideal value (for goldilock features).
+      const data = GOLDILOCK_FEATURE_RANGES[feature];
+      const minVal = data[0];
+      const maxVal = data[1];
+      const units = data[2];
+
+      elements += `
+        <div class="response-row">
+          <div class="text">
+            <p>`+ question +` `+ displayName +`?</p>
+          </div>
+          <div class="right-side">
+            <div class="slider-container">
+              <p class="slider-value">
+                <span id="`+ feature +`-display">`+ ratings[feature] +`</span> `+ units +`
+              </p>
+              <input type="range" min="`+ minVal +`" max="`+ maxVal +`" value="`+ ratings[feature] +`" class="slider" name="`+ feature +`" oninput="handleSlider(this)">
+            </div>
+          </div>
         </div>
-      </div>
-    `;
+      `;
+    }
   });
 
   // Add elements to the DOM.

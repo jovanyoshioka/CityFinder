@@ -65,6 +65,19 @@ const FEATURE_TYPES = {
 };
 
 /**
+ * Goldilock Feature Ranges and Units
+ * Format: [min, max, units]
+ */
+const GOLDILOCK_FEATURE_RANGES = {
+  'VALUEH_median': [175000, 9999999, 'USD'],
+  'AGE_mean': [31, 60, 'years'],
+  'Annual_Precip': [0, 99, 'inches'],
+  'Annual_Snowfall': [0, 220, 'inches'],
+  'Winter_Temp': [4, 72, '&deg Fahrenheit'],
+  'Summer_Temp': [56, 88, '&deg Fahrenheit']
+};
+
+/**
  * User-Facing Feature Names
  *   Note: Formatted to fit in above prompts.
  */
