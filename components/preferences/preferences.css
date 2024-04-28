@@ -126,14 +126,14 @@ div.preferences-buttons button.primary {
   margin-top: 20px;
 }
 
-button#back {
+button#backBtn {
   display: none; /* Only show when category selected */
   position: absolute;
   top: 0;
   left: 0;
 }
 /* Back arrow icon */
-button#back i {
+button#backBtn i {
   font-size: 0.8em;
   margin-right: 5px;
 }

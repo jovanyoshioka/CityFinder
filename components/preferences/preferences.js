@@ -30,8 +30,8 @@ const preferencesTemplateContent = `
       </div>
 
       <div class="preferences-buttons">
-        <button onclick="showCategories()" id="back" class="primary"><i class="fa-solid fa-chevron-left"></i> Back</button>
-        <button onclick="findCity()" class="primary">Find City</button>
+        <button onclick="showCategories()" id="backBtn" class="primary"><i class="fa-solid fa-chevron-left"></i> Back</button>
+        <button onclick="findCity()" id="findCityBtn" class="primary">Find City</button>
       </div>
     </div>
 `;
@@ -178,17 +178,21 @@ function selectCategory(category) {
 
   // Show rating interface (with category's questions added from above).
   doc.getElementById("preferences-rating-container").style.display = "block";
-  doc.getElementById("back").style.display = "inline-block";
+  doc.getElementById("backBtn").style.display = "inline-block";
 }
 
 function showCategories() {
   const doc = getDocNode();
   doc.getElementById("preferences-categories-container").style.display = "block";
   doc.getElementById("preferences-rating-container").style.display = "none";
-  doc.getElementById("back").style.display = "none";
+  doc.getElementById("backBtn").style.display = "none";
 }
 
 function findCity() {
+  // Disable "Find City" button to prevent accidentally calling endpoint multiple times.
+  const doc = getDocNode();
+  doc.getElementById("findCityBtn").disabled = true;
+
   // Show the suggestions interface, ensuring the loading screen is shown.
   const suggestionsDoc = document.getElementsByTagName("suggestions-component")[0].shadowRoot;
   suggestionsDoc.getElementById("suggestions-container").style.display = "block";
@@ -200,13 +204,33 @@ function findCity() {
 
   // Call PythonAnywhere API endpoint.
   // Set the suggestions interface content based on results.
-  setTimeout(() => {
-    /* TODO: Call API endpoint and set the returned data. */
-    
-    // Show suggestions once all data is set.
-    suggestionsDoc.getElementById("loading-screen").style.pointerEvents = "none";
-    suggestionsDoc.getElementById("loading-screen").style.opacity = "0.0";
-  }, 5000);
+  const BASE_URL = "https://jyoshiok.pythonanywhere.com/"
+
+  fetch(BASE_URL, {
+    method: "POST",
+    body: JSON.stringify(ratings),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8"
+    }
+  })
+    .then((res) => res.text())
+    .then((data) => {
+      // TODO: Set suggestions to the returned data.
+      console.log(data);
+
+      // Show suggestions once all data is set.
+      suggestionsDoc.getElementById("loading-screen").style.pointerEvents = "none";
+      suggestionsDoc.getElementById("loading-screen").style.opacity = "0.0";
+
+      // Re-enable "Find City" button to allow user to send another request.
+      doc.getElementById("findCityBtn").disabled = false;
+    })
+    .catch((err) => {
+      // Notify user of the error.
+      alert("An error occurred! Please try again.");
+
+      console.error(err);
+    });
 }
 
 class Preferences extends HTMLElement {
