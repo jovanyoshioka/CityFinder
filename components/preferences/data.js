@@ -69,12 +69,12 @@ const FEATURE_TYPES = {
  * Format: [min, max, units]
  */
 const GOLDILOCK_FEATURE_RANGES = {
-  'VALUEH_median': [175000, 9999999, 'USD'],
-  'AGE_mean': [31, 60, 'years'],
-  'Annual_Precip': [0, 99, 'inches'],
-  'Annual_Snowfall': [0, 220, 'inches'],
-  'Winter_Temp': [4, 72, '&deg Fahrenheit'],
-  'Summer_Temp': [56, 88, '&deg Fahrenheit']
+  'VALUEH_median': [175000, 9999999, 'USD', 400000],
+  'AGE_mean': [31, 60, 'years', 42],
+  'Annual_Precip': [0, 99, 'inches', 32],
+  'Annual_Snowfall': [0, 220, 'inches', 2],
+  'Winter_Temp': [4, 72, '&deg Fahrenheit', 33],
+  'Summer_Temp': [56, 88, '&deg Fahrenheit', 74]
 };
 
 /**

@@ -63,7 +63,10 @@ function displayHighlight(location, rank) {
   doc.getElementById("highlight").innerHTML = element;
 }
 
-function displayResults(results) {
+/**
+ * @param container Either "left", "middle", or "right".
+ */
+function displayResults(results, container) {
   let elements = ``;
   results.forEach((result) => {
     // Note: String cannot have spaces before/after div tags b/c it will cause unwanted padding.
@@ -76,7 +79,7 @@ function displayResults(results) {
       </div>`;
   });
   const doc = document.getElementsByTagName("suggestions-component")[0].shadowRoot;
-  doc.querySelector("div.result-group.middle").innerHTML = elements;
+  doc.querySelector("div.result-group." + container).innerHTML = elements;
 }
 
 

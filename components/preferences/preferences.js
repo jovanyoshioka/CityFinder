@@ -1,7 +1,8 @@
 // Reference: https://www.freecodecamp.org/news/reusable-html-components-how-to-reuse-a-header-and-footer-on-a-website/
 
 // Dictionary to keep dynamically updated ratings.
-// Note: Initialize every feature as default rating "3" for suggestion algorithm.
+// Note: Initialize every feature as default rating "1" for suggestion algorithm.
+const DEFAULT_RATING = "1";
 const ratings = getDefaultRatings();
 
 // Create button elements for each category.
@@ -41,14 +42,14 @@ function getDefaultRatings() {
   const featureRatings = {};
   for (const [key, value] of Object.entries(FEATURES_CATEGORIZED)) {
     if (key in GOLDILOCK_FEATURE_RANGES) {
-      // Initialize as average of min/max values for goldilocks feature.
+      // Initialize as median of values for goldilocks feature.
+      // Note: mean not used since it is heavily influenced by outlier values.
       const data = GOLDILOCK_FEATURE_RANGES[key];
-      const minVal = data[0];
-      const maxVal = data[1];
-      featureRatings[key] = Math.round((minVal + maxVal) / 2).toString();
+      const medianVal = data[3];
+      featureRatings[key] = medianVal.toString();
     } else {
       // Initialize as default "3" for norm/inv_norm feature.
-      featureRatings[key] = "3";
+      featureRatings[key] = DEFAULT_RATING;
     }
   }
   return featureRatings;
@@ -220,7 +221,7 @@ function findCity() {
       // Initialize the suggestions interface.
       const results = data["suggestions"];
       displayHighlight(results[0][0], results[0][1]);
-      displayResults(results);
+      displayResults(results, "middle");
 
       // Show suggestions once all data is set.
       suggestionsDoc.getElementById("loading-screen").style.pointerEvents = "none";
