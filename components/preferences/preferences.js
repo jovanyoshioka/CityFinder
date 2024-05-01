@@ -221,6 +221,7 @@ function findCity() {
     .then((data) => {
       // Initialize the suggestions interface.
       suggestions = data["suggestions"];
+      firstRank = 1
       displayHighlight('1');
       displayResults(Object.fromEntries(Object.entries(suggestions).slice(0, 5)), "middle");
       displayResults(Object.fromEntries(Object.entries(suggestions).slice(5, 10)), "right");
