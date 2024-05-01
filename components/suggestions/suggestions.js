@@ -82,6 +82,23 @@ function displayResults(results, container) {
   doc.querySelector("div.result-group." + container).innerHTML = elements;
 }
 
+function updateCarousel() {
+  const doc = document.getElementsByTagName("suggestions-component")[0].shadowRoot;
+  
+  // Remove left arrow if first result.
+  if (firstRank == 1) {
+    doc.querySelector("section.suggestions-results button.previous").style.display = "none";
+  } else {
+    doc.querySelector("section.suggestions-results button.previous").style.display = "block";
+  }
+
+  // Remove right arrow if no results are left.
+  if (firstRank+5 > suggestions.length) {
+    doc.querySelector("section.suggestions-results button.next").style.display = "none";
+  } else {
+    doc.querySelector("section.suggestions-results button.next").style.display = "block";
+  }
+}
 
 /**
  * Helper function to replace class.
@@ -125,7 +142,7 @@ function showResults(next) {
     right.style.opacity = "0.0";
     right.style.transform = "translateX(-100%)";
   }
-  
+
   setTimeout(() => {
     // Update classes to reflect new positions.
     if (next) {
@@ -134,13 +151,30 @@ function showResults(next) {
       replaceClass(left, "left", "right");
 
       left.style.opacity = "1.0";
+      
+      firstRank += 5;
+
+      // Initialize the right.
+      if (!(firstRank+5 > suggestions.length)) {
+        displayResults(suggestions.slice(firstRank+4, firstRank+9), "right");
+      }
     } else {
       replaceClass(middle, "middle", "right");
       replaceClass(left, "left", "middle");
       replaceClass(right, "right", "left");
 
       right.style.opacity = "1.0";
+
+      firstRank -= 5;
+
+      // Initialize the left.
+      if (!(firstRank == 1)) {
+        displayResults(suggestions.slice(firstRank-6, firstRank), "left");
+      }
     }
+
+    // Update carousel buttons.
+    updateCarousel();
 
     // Re-enable the transition button.
     buttonNodes.forEach((node) => {

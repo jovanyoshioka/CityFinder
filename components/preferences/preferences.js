@@ -189,6 +189,9 @@ function showCategories() {
   doc.getElementById("backBtn").style.display = "none";
 }
 
+let suggestions = {};
+let firstRank = 1;
+
 function findCity() {
   // Disable "Find City" button to prevent accidentally calling endpoint multiple times.
   const doc = getDocNode();
@@ -216,12 +219,13 @@ function findCity() {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
-
       // Initialize the suggestions interface.
       const results = data["suggestions"];
+      suggestions = data["suggestions"];
       displayHighlight(results[0][0], results[0][1]);
-      displayResults(results, "middle");
+      displayResults(results.slice(0, 5), "middle");
+      displayResults(results.slice(5, 10), "right");
+      updateCarousel();
 
       // Show suggestions once all data is set.
       suggestionsDoc.getElementById("loading-screen").style.pointerEvents = "none";
