@@ -45,7 +45,6 @@ div.suggestions-highlight-content {
 }
 
 div.suggestions-highlight-content div.container {
-    /* margin-top: -25px; */
     position: absolute;
     top: 50%;
     left: 0;
@@ -63,19 +62,24 @@ div.suggestions-highlight-content h2 {
     font-size: 3em;
     position: absolute;
     top: 10px;
-    left: -10px;
+    left: 0;
     color: #DBE4EE;
+}
+div.suggestions-highlight-content div.list-container {
+    display: inline-grid;
 }
 div.suggestions-highlight-content p {
     font-size: 1.5em;
-    margin-top: 20px;
+    margin: 20px auto 0 auto;
+    display: inline;
     color: #DBE4EE;
-    text-align: left;
+    text-align: center;
 }
 div.suggestions-highlight-content ul {
     font-size: 1.5em;
     margin-left: 40px;
     padding: 0;
+    display: inline-block;
     color: #DBE4EE;
     text-align: left;
 }

@@ -61,13 +61,15 @@ function displayHighlight(rank) {
   });
 
   const element = `
-    <h1>`+ city +`, `+ state +`</h1>
+    <h1>`+ city +`,<br />`+ state +`</h1>
     <h2>#`+ rank +`</h2>
     
-    <p>You might like `+ city +` because of its...</p>
-    <ul>
-      `+ reasons +`
-    </ul>
+    <div class="list-container">
+      <p>You might like `+ city +` because of its...</p>
+      <ul>
+        `+ reasons +`
+      </ul>
+    </div>
   `;
 
   const imgElement = `<img src="`+ image +`" />`;
