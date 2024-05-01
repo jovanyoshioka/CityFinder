@@ -189,6 +189,21 @@ function showCategories() {
   doc.getElementById("backBtn").style.display = "none";
 }
 
+function cleanData(data) {
+  // Remove row if the city or state name is null.
+  const cleaned = {};
+  let rank = 1;
+  for (var i = 1; i <= Object.entries(data).length; i++) {
+    let city = data[i.toString()];
+    if (!(city["cityName"] == "NaN" || city["stateName"] == "NaN")) {
+      city["rank"] = rank;
+      cleaned[rank] = city;
+      rank++; // Next valid (i.e., not NaN) city will be the next rank.
+    }
+  }
+  return cleaned;
+}
+
 let suggestions = {};
 let firstRank = 1;
 
@@ -219,8 +234,10 @@ function findCity() {
   })
     .then((res) => res.json())
     .then((data) => {
+
+      suggestions = cleanData(data["suggestions"]);
+
       // Initialize the suggestions interface.
-      suggestions = data["suggestions"];
       firstRank = 1
       displayHighlight('1');
       displayResults(Object.fromEntries(Object.entries(suggestions).slice(0, 5)), "middle");
