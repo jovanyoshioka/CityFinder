@@ -220,11 +220,10 @@ function findCity() {
     .then((res) => res.json())
     .then((data) => {
       // Initialize the suggestions interface.
-      const results = data["suggestions"];
       suggestions = data["suggestions"];
-      displayHighlight(results[0][0], results[0][1]);
-      displayResults(results.slice(0, 5), "middle");
-      displayResults(results.slice(5, 10), "right");
+      displayHighlight('1');
+      displayResults(Object.fromEntries(Object.entries(suggestions).slice(0, 5)), "middle");
+      displayResults(Object.fromEntries(Object.entries(suggestions).slice(5, 10)), "right");
       updateCarousel();
 
       // Show suggestions once all data is set.

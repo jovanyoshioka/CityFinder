@@ -7,15 +7,14 @@ import math
 import pandas as pd
 
 app = Flask(__name__)
-
-# The below CORS policy enables requests from the frontend app. Setting the value
-# to '*' is dangerous since it will allow any app to access this API. When deployed
-# to GitHub pages, only include CityFinder's URL below.
 CORS(app, resources={r"/*": {"origins": "*"}}) # Temporarily open to all domains.
+# TODO: Replace origin below with GitHub URL.
+# CORS(app, resources={r"/api/*": {"origins": "https://yourdomain.com"}})
 
 
 def calculate_score(df, row, PCA_relevance, user_importance, gold_dict):
     score = 0
+    contributions = {}
     for var in df.columns:
         if var not in user_importance or math.isnan(row[var]):
             continue
@@ -24,16 +23,23 @@ def calculate_score(df, row, PCA_relevance, user_importance, gold_dict):
             # Handling 'gold' type variables
             diff = abs(gold_dict[var]['given_value'] - row[var])
             normalized_diff = diff / gold_dict[var]['var_range']
-            score += (1 - normalized_diff) * PCA_relevance.get(var, 0) * user_importance.get(var, 0)
+            contribution = (1 - normalized_diff) * PCA_relevance.get(var, 0) * user_importance.get(var, 0)
         else:
             # Handling 'norm' type variables
-            score += row[var] * PCA_relevance.get(var, 0) * user_importance.get(var, 0)
-    return score
+            contribution = row[var] * PCA_relevance.get(var, 0) * user_importance.get(var, 0)
+
+        score += contribution
+        contributions[var] = contribution
+
+    return score, contributions
 
 
 def suggest_cities(user_importance):
+    NUM_OF_RESPONSES = 25
+    NUM_OF_TOP_FEAT = 5
+
     # Read in city data.
-    df = pd.read_csv('/home/jyoshiok/mysite/CityMaster1.5.csv')
+    df = pd.read_csv('/home/jyoshiok/mysite/CityMaster1.7.csv')
 
     # PCA dict
     df_pca = pd.read_csv('/home/jyoshiok/mysite/PCA_Results1.2.csv')
@@ -75,13 +81,22 @@ def suggest_cities(user_importance):
     city_scores = {index: calculate_score(df, row, pca_scores, user_importance, gold_dict) for index, row in df.iterrows()}
 
     # Sort cities by their scores in descending order
-    sorted_cities = sorted(city_scores.items(), key=lambda x: x[1], reverse=True)
+    sorted_cities = sorted(city_scores.items(), key=lambda x: x[1][0], reverse=True)[:NUM_OF_RESPONSES]
+    city_details = {}
+    for i, (idx, (score, contributions)) in enumerate(sorted_cities):
+        # Sort contributions by value
+        sorted_contributions = sorted(contributions.items(), key=lambda x: x[1], reverse=True)
+        top_features = sorted_contributions[:NUM_OF_TOP_FEAT]
 
-    output = []
-    for i, city in enumerate(sorted_cities[:5]):
-        output.append([df.iloc[city[0]]['city'], i+1])
+        city_details[i+1] = {
+            "cityName": df.loc[idx, 'city_ascii'] if not pd.isna(df.loc[idx, 'city_ascii']) else 'NaN',
+            "stateName": df.loc[idx, 'State'] if not pd.isna(df.loc[idx, 'State']) else 'NaN',
+            "topFeatures": [item[0] for item in top_features],
+            "rank": i+1,
+            "stateFIPS": str(df.loc[idx, 'FIPS_2digit']) if not pd.isna(df.loc[idx, 'FIPS_2digit']) else 'NaN'
+        }
 
-    return output
+    return city_details
 
 
 @app.route('/', methods=['POST'])

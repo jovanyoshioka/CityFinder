@@ -19,12 +19,16 @@ suggestionsTemplate.innerHTML = `
         </div>
       </div>
       <div class="suggestions-highlight-image">
-        <img src="assets/knoxville.JPG" />
+        <!-- Populated by displayHighlight() -->
       </div>
     </section>
     <section class="suggestions-results">
-      <div class="result-group left"></div>
-      <div class="result-group right"></div>
+      <div class="result-group left">
+        <!-- Populated by displayResults() -->
+      </div>
+      <div class="result-group right">
+        <!-- Populated by displayResults() -->
+      </div>
       <div class="result-group middle">
         <!-- Populated by displayResults() -->
       </div>
@@ -39,28 +43,38 @@ suggestionsTemplate.innerHTML = `
   </div>
 `;
 
-function displayHighlight(location, rank) {
+function displayHighlight(rank) {
+  const data = suggestions[rank];
+
+  const city = data['cityName'];
+  const state = data['stateName'];
+  const topFeatures = data['topFeatures'];
+
+  if (data['stateFIPS'].length < 2) {
+    data['stateFIPS'] = '0' + data['stateFIPS'];
+  }
+  const image = 'data/images/' + data['stateFIPS'] + '000.jpg';
+
+  let reasons = ``;
+  topFeatures.forEach((feature) => {
+    reasons += `<li>`+ FEATURE_SUGGESTION_NAMES[feature] +`</li>`;
+  });
+
   const element = `
-    <h1>`+ location +`</h1>
+    <h1>`+ city +`, `+ state +`</h1>
     <h2>#`+ rank +`</h2>
     
-    <p>You might like `+ location +` because...</p>
+    <p>You might like `+ city +` because of its...</p>
     <ul>
-      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-    </ul>
-
-    <p>You might not like `+ location +` because...</p>
-    <ul>
-      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+      `+ reasons +`
     </ul>
   `;
 
+  const imgElement = `<img src="`+ image +`" />`;
+
   const doc = document.getElementsByTagName("suggestions-component")[0].shadowRoot;
   doc.getElementById("highlight").innerHTML = element;
+  doc.querySelector("div.suggestions-highlight-image").innerHTML = imgElement;
 }
 
 /**
@@ -68,14 +82,23 @@ function displayHighlight(location, rank) {
  */
 function displayResults(results, container) {
   let elements = ``;
-  results.forEach((result) => {
+  Object.entries(results).forEach((result) => {
+    const city = result[1]['cityName'];
+    const state = result[1]['stateName'];
+    const rank = result[1]['rank'];
+    if (result[1]['stateFIPS'].length < 2) {
+      result[1]['stateFIPS'] = '0' + result[1]['stateFIPS'];
+    }
+    const image = 'data/images/' + result[1]['stateFIPS'] + '000.jpg';
+    
+
     // Note: String cannot have spaces before/after div tags b/c it will cause unwanted padding.
     elements += 
-      `<div class="result">
-        <img src="assets/knoxville.JPG" />
+      `<div class="result" onclick="displayHighlight(`+rank+`)">
+        <img src="`+ image +`" />
         <div class="tint"></div>
-        <h1>`+ result[0] +`</h1>
-        <h2>`+ result[1] +`</h2>
+        <h1>`+ city +`, `+ state +`</h1>
+        <h2>`+ rank +`</h2>
       </div>`;
   });
   const doc = document.getElementsByTagName("suggestions-component")[0].shadowRoot;
@@ -93,7 +116,7 @@ function updateCarousel() {
   }
 
   // Remove right arrow if no results are left.
-  if (firstRank+5 > suggestions.length) {
+  if (firstRank+5 > Object.entries(suggestions).length) {
     doc.querySelector("section.suggestions-results button.next").style.display = "none";
   } else {
     doc.querySelector("section.suggestions-results button.next").style.display = "block";
@@ -155,8 +178,8 @@ function showResults(next) {
       firstRank += 5;
 
       // Initialize the right.
-      if (!(firstRank+5 > suggestions.length)) {
-        displayResults(suggestions.slice(firstRank+4, firstRank+9), "right");
+      if (!(firstRank+5 > Object.entries(suggestions).length)) {
+        displayResults(Object.fromEntries(Object.entries(suggestions).slice(firstRank+4, firstRank+9)), "right");
       }
     } else {
       replaceClass(middle, "middle", "right");
@@ -169,7 +192,7 @@ function showResults(next) {
 
       // Initialize the left.
       if (!(firstRank == 1)) {
-        displayResults(suggestions.slice(firstRank-6, firstRank), "left");
+        displayResults(Object.fromEntries(Object.entries(suggestions).slice(firstRank-6, firstRank)), "left");
       }
     }
 
